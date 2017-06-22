@@ -1,0 +1,18 @@
+identifier: a(ba)*
+
+configuration:
+  state: 1
+
+rules:
+- conditions:
+  - configuration['state'] == 1
+  - event['symbol'] == 'a'
+  actions:
+  - configuration['state'] = 2
+
+- conditions:
+  - configuration['state'] == 2
+  - event['symbol'] == 'b'
+  actions:
+  - configuration['state'] = 1
+
